@@ -1,0 +1,32 @@
+<div class="container" style=" float: right; padding-top: 5%;">
+    <div style="text-align: center;">
+        <h2>LISTA DE CITAS</h2>
+    </div>
+    <div>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Servicio</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Valor a Pagar</th>
+                    <th scole="col">Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cita of citas">
+                    <td>{{cita.cliente}}</td>
+                    <td>{{cita.servicio}}</td>
+                    <td>{{cita.fecha.slice(0,10)}}</td>
+                    <td>{{cita.hora}}</td>
+                    <td>$ {{cita.precio}}</td>
+                    <td>
+                        <button (click)="atenderCita(cita.id)" class="btn btn-secondary">Antendido</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

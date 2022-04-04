@@ -1,0 +1,38 @@
+
+<div class="container" style=" float: right; padding-top: 5%; ">
+    <div style="text-align: center;">
+        <h2>NUEVA CITA</h2>
+    </div>
+    <div style="width: 70%;">
+        <form action="">
+            <button (click)="modal.showModal()" class="btn btn-secondary">Escoger Cliente</button>
+            <div class="form-group">
+                <label for="cliente">Cliente</label>
+                <input [(ngModel)]="cliente.nombre" name="cliente" type="text" class="form-control" id="cliente" placeholder="Cliente" readonly>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputState">Tipo Servicio</label>
+                <select [(ngModel)]="serv.id" name="inputState" id="inputState" class="form-control">
+                    <option selected>Seleccione</option>
+                    <option value="{{srv.id}}" *ngFor="let srv of servicios">{{srv.nombre}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="fecha">Fecha</label>
+                <input [(ngModel)]="fecha" name="fecha" type="date" id="fecha" class="form-control" placeholder="Fecha" />
+            </div>
+            <div class="form-group col-md-4">
+                <label for="inputHora">Hora</label>
+                <select [(ngModel)]="hora" name="inputHora" id="inputHora" class="form-control">
+                    <option selected>Seleccione</option>
+                    <option *ngFor="let ho of tiempo">{{ho.name}}</option>
+                    
+                </select>
+            </div>
+            <br>
+            <button (click)="guardarCita()" type="submit" class="btn btn-primary" style="width: 25%;">Aceptar</button>
+        </form>
+    </div>
+    <app-modalclientes (val)="clienteSeleccionado($event)" [title]="'ESCOGER CLIENTE'" #modal></app-modalclientes>
+</div>
+
